@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TESTGAME</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body onload = "startGame()">
+    <script>
+       var canvasWidth = 600;
+       var canvasHeight = 400;
+
+       var player;
+       var playerX = 200
+       var playerY = 200
+       function createPlayer(width, height) {
+    this.width = width;
+    this.height = height;
+    this.x = playerX;
+    this.y = playerY;
+
+    this.draw = function() {
+        ctx = gameCanvas.context;
+        ctx.fillStyle = "green";
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+       }
+
+       var GameCavas = {
+        canvas: document.createElement("canvas"),
+    start: function() {
+        this.canvas.width = canvasWidth;
+        this.canvas.height = canvasHeight;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+    }
+       }
+       function startGame() {
+    gameCanvas.start();
+    player = new createPlayer(30, 30);
+       }
+    
+       document.body.onkeyup = function(e) {
+        if (e.keycode == 37) {
+            playerX - 1
+        }
+        else if (e.keycode == 39) {
+            playerX + 1
+        }
+            
+        }
+</script>
+    
+    
+    </body>
+</html>
