@@ -11,17 +11,22 @@
         </style>
     </head>
     <body>
+        <input type="text" onkeydown="myFunction()">
         <canvas id="canvas" width="600" height="400">
             no work
         </canvas>
         <script>
             window.onload = function(){
             var canvas = document.getElementById("canvas");
-            var context = canvas.getContext("2d");
-            context.moveTo(50, 100);
-            context.lineTo(400, 200);
-            context.stroke();
+            var context = canvest.getContext("2d");
+            var x;
+            function move(){
+                context.rect(x,10, 100, 100);
+                context.stroke();
+                x += 1;
             };
+            window.requestAnimationFrame(move);
+        }
         </script>
     </body>
 </html>
